@@ -1,0 +1,297 @@
+{
+	"handPick": [
+		{
+			"id": "001",
+			"imgBg": "../img/hp-big-bg.jpg",
+			"imgTxt": "../img/hp-big-txt.png",
+			"txt1": "绚烂夏日",
+			"txt2": "满1件打8.8折,满2件打8折,封顶",
+			"hoverImg1": "../img/hp-hover1.jpg",
+			"price": "¥1393"
+		},
+		{
+			"id": "002",
+			"imgBg": "../img/hp-big-bg2.jpg",
+			"imgTxt": "../img/hp-big-txt2.png",
+			"txt1": "六福珠宝 国际演绎",
+			"txt2": "满598减70，上不封顶",
+			"hoverImg1": "../img/hp-hover2.jpg",
+			"price": "¥8993"
+		},
+		{
+			"id": "003",
+			"imgBg": "../img/hp-big-bg3.jpg",
+			"imgTxt": "../img/hp-big-txt3.png",
+			"txt1": "当代时髦 艺术至上",
+			"txt2": "满599元减100元,上不封顶",
+			"hoverImg1": "../img/hp-hover3.jpg",
+			"price": "¥359"
+		},
+		{
+			"id": "004",
+			"imgBg": "../img/hp-big-bg4.jpg",
+			"imgTxt": "../img/hp-big-txt4.png",
+			"txt1": "盛夏臻品 裙摆飞扬",
+			"txt2": "满1件打8折,封顶",
+			"hoverImg1": "../img/hp-hover4.jpg",
+			"price": "¥659"
+		}
+	],
+	"floor": {
+		"women": {
+			"more": "逛更多女装品牌",
+			"title" : {
+				"img": "../img/women-tit.png",
+				"tit": "全部女装品牌 &gt;"
+			},
+			"content": [
+				{
+					"id":"005",
+					"img": "../img/women-pro1.jpg",
+					"info": "满1件打8.8折,满2件打8折,封顶",
+					"tit": "音儿YINER女装专场",
+					"discout": "0.9"
+				},
+				{
+					"id":"006",
+					"img": "../img/women-pro2.jpg",
+					"info": "满199减100，上不封顶",
+					"tit": "年中尖货大钜惠-慕诗涵&缪佳&村上春&裁写&LISA LISA联合",
+					"discout": "1.5"
+				},
+				{
+					"id":"007",
+					"img": "../img/women-pro3.jpg",
+					"info": "满498元减100元,上不封顶",
+					"tit": "千柏年真丝女装专场",
+					"discout": "2.2"
+				},
+				{
+					"id":"008",
+					"img": "../img/women-pro4.jpg",
+					"info": "满1件打4折,封顶",
+					"tit": "限时钜惠，4折断码清仓-美莎帕女装",
+					"discout": "1.7"
+				},
+				{
+					"id":"009",
+					"img": "../img/women-pro5.jpg",
+					"info": "满498元减100元,上不封顶",
+					"tit": "时尚暴击-Fleur Wood女装专场",
+					"discout": "0.9"
+				},
+				{
+					"id":"010",
+					"img": "../img/women-pro6.jpg",
+					"info": "满1件打8折,封顶",
+					"tit": "衣然心动-海青蓝CYANINE SEA女装专场",
+					"discout": "1.1"
+				}
+			]
+		},
+		"bag": {
+			"more": "逛更多鞋包品牌",
+			"title" : {
+				"img": "../img/bag-tit.png",
+				"tit": "全部鞋包品牌 &gt;"
+			},
+			"content": [
+				{
+					"id":"011",
+					"img": "../img/bag-pro1.jpg",
+					"info": "满1件打8.8折,满2件打8折,封顶",
+					"tit": "百丽集团-反季清仓1件5折",
+					"discout": "0.9"
+				},
+				{
+					"id":"012",
+					"img": "../img/bag-pro2.jpg",
+					"info": "满199减100，上不封顶",
+					"tit": "立省100元-百丽BeLLE女鞋专场",
+					"discout": "1.5"
+				},
+				{
+					"id":"013",
+					"img": "../img/bag-pro3.jpg",
+					"info": "满498元减100元,上不封顶",
+					"tit": "299元任选2件-茵曼&FMM花晨月&吐火罗女鞋专场",
+					"discout": "2.2"
+				},
+				{
+					"id":"014",
+					"img": "../img/bag-pro4.jpg",
+					"info": "满1件打4折,封顶",
+					"tit": "239元任选2件-骆驼CAMEL男鞋专场",
+					"discout": "1.7"
+				},
+				{
+					"id":"015",
+					"img": "../img/bag-pro5.jpg",
+					"info": "满498元减100元,上不封顶",
+					"tit": "他她TATA&真美诗女鞋混合专场",
+					"discout": "0.9"
+				},
+				{
+					"id":"016",
+					"img": "../img/bag-pro6.jpg",
+					"info": "满1件打8折,封顶",
+					"tit": "直击底价-天美意teenmix女鞋包混合专场",
+					"discout": "1.1"
+				}
+			]
+		},
+		"man": {
+			"more": "逛更多男装品牌",
+			"title" : {
+				"img": "../img/man-tit.png",
+				"tit": "全部男装品牌 &gt;"
+			},
+			"content": [
+				{
+					"id":"017",
+					"img": "../img/man-pro1.jpg",
+					"info": "满1件打8.8折,满2件打8折,封顶",
+					"tit": "佐丹奴GIORDANO男女装混合夜惊喜特惠专场",
+					"discout": "0.9"
+				},
+				{
+					"id":"018",
+					"img": "../img/man-pro2.jpg",
+					"info": "满199减100，上不封顶",
+					"tit": "富铤FORTEI男装专场",
+					"discout": "1.5"
+				},
+				{
+					"id":"019",
+					"img": "../img/man-pro3.jpg",
+					"info": "满498元减100元,上不封顶",
+					"tit": "年中好物提前抢-森马男女混合专场",
+					"discout": "2.2"
+				},
+				{
+					"id":"020",
+					"img": "../img/man-pro4.jpg",
+					"info": "满1件打4折,封顶",
+					"tit": "最后的疯抢-奢步士SOUREPOSE男装特惠",
+					"discout": "1.7"
+				},
+				{
+					"id":"021",
+					"img": "../img/man-pro5.jpg",
+					"info": "满498元减100元,上不封顶",
+					"tit": "拓路者Pioneer Camp男装专场",
+					"discout": "0.9"
+				},
+				{
+					"id":"022",
+					"img": "../img/man-pro6.jpg",
+					"info": "满1件打8折,封顶",
+					"tit": "晚八惊喜-enk男装专场",
+					"discout": "1.1"
+				}
+			]
+		},
+		"sport": {
+			"more": "逛更多鞋包品牌",
+			"title" : {
+				"img": "../img/sprort-tit.png",
+				"tit": "全部运动品牌 &gt;"
+			},
+			"content": [
+				{
+					"id":"023",
+					"img": "../img/sprort-pro1.jpg",
+					"info": "满1件打8.8折,满2件打8折,封顶",
+					"tit": "时尚风暴-潮范运动",
+					"discout": "0.9"
+				},
+				{
+					"id":"024",
+					"img": "../img/sprort-pro2.jpg",
+					"info": "满199减100，上不封顶",
+					"tit": "耐克Nike运动休闲男女专场",
+					"discout": "1.5"
+				},
+				{
+					"id":"025",
+					"img": "../img/sprort-pro3.jpg",
+					"info": "满498元减100元,上不封顶",
+					"tit": "adidas潮流运动专场",
+					"discout": "2.2"
+				},
+				{
+					"id":"026",
+					"img": "../img/sprort-pro4.jpg",
+					"info": "满1件打4折,封顶",
+					"tit": "范德安BALNEAIRE时尚泳衣专场",
+					"discout": "1.7"
+				},
+				{
+					"id":"027",
+					"img": "../img/sprort-pro5.jpg",
+					"info": "满498元减100元,上不封顶",
+					"tit": "朵彩时尚泳装专场",
+					"discout": "0.9"
+				},
+				{
+					"id":"028",
+					"img": "../img/sprort-pro6.jpg",
+					"info": "满1件打8折,封顶",
+					"tit": "李宁LI-NING泳装精选专场",
+					"discout": "1.1"
+				}
+			]
+		},
+		"jewelry": {
+			"more": "逛更多鞋包品牌",
+			"title" : {
+				"img": "../img/jewelry-tit.png",
+				"tit": "全部运动品牌 &gt;"
+			},
+			"content": [
+				{
+					"id":"023",
+					"img": "../img/jewelry-pro1.jpg",
+					"info": "满1件打8.8折,满2件打8折,封顶",
+					"tit": "6.10 潮不设限 任性买-手表配饰",
+					"discout": "0.9"
+				},
+				{
+					"id":"024",
+					"img": "../img/jewelry-pro2.jpg",
+					"info": "满199减100，上不封顶",
+					"tit": "周大福珠宝专场",
+					"discout": "1.5"
+				},
+				{
+					"id":"025",
+					"img": "../img/jewelry-pro3.jpg",
+					"info": "满498元减100元,上不封顶",
+					"tit": "瑞士天梭Tissot百搭手表专场",
+					"discout": "2.2"
+				},
+				{
+					"id":"026",
+					"img": "../img/jewelry-pro4.jpg",
+					"info": "满1件打4折,封顶",
+					"tit": "周生生珠宝专场",
+					"discout": "1.7"
+				},
+				{
+					"id":"027",
+					"img": "../img/jewelry-pro5.jpg",
+					"info": "满498元减100元,上不封顶",
+					"tit": "暴龙BOLON眼镜专场",
+					"discout": "0.9"
+				},
+				{
+					"id":"028",
+					"img": "../img/jewelry-pro6.jpg",
+					"info": "满1件打8折,封顶",
+					"tit": "天王TIAN WANG手表专场",
+					"discout": "1.1"
+				}
+			]
+		}
+	}
+}
