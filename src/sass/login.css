@@ -34,6 +34,8 @@ body {
   .login-box .login-tit {
     font-size: 14px;
     margin-bottom: 24px; }
+    .login-box .login-tit em {
+      float: right; }
     .login-box .login-tit a {
       float: right;
       font-size: 14px;
@@ -55,6 +57,22 @@ body {
       width: 20px;
       height: 20px;
       background: url("../img/error-icon.png"); }
+    .login-box .login-item .code-error {
+      right: 134px; }
+    .login-box .login-item .phone-code {
+      width: 150px;
+      margin-right: 10px; }
+    .login-box .login-item .get-code {
+      display: inline-block;
+      padding: 0 12px;
+      width: 88px;
+      height: 30px;
+      line-height: 30px;
+      border: 1px solid #d0d0d0;
+      color: #999;
+      background: #d0d0d0;
+      cursor: not-allowed;
+      border-radius: 3px; }
     .login-box .login-item .login-tips {
       color: #f64a4a;
       min-height: 19px;
@@ -65,6 +83,13 @@ body {
       margin-bottom: 5px; }
       .login-box .login-item .login-tips span {
         display: none; }
+  .login-box .accept-terms .accept-ipt {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    top: 3px; }
+  .login-box .accept-terms .accept-tips {
+    color: #f00; }
 
 .forget-box .remerber-box {
   float: left; }
@@ -132,5 +157,11 @@ body {
   text-align: center;
   color: #767074;
   background-color: #fdfbfe; }
+
+.by-email {
+  float: right;
+  margin: 18px 0 0;
+  color: #1d94d1;
+  cursor: pointer; }
 
 /*# sourceMappingURL=login.css.map */

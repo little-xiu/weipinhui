@@ -1,0 +1,181 @@
+.w1000 {
+  width: 1000px;
+  margin: 0 auto;
+  padding-top: 15px; }
+
+.fix-nav {
+  width: 998px;
+  line-height: 46px;
+  height: 46px;
+  background-color: #f5f5f5;
+  position: relative;
+  border: 1px solid #dfdfdf;
+  z-index: 9; }
+
+.fix-nav-l {
+  float: left; }
+  .fix-nav-l .fix-nav-tit {
+    float: left;
+    width: 67px;
+    background-color: #fff;
+    color: #f10180;
+    border: 1px solid #f10180;
+    margin: -1px 0 0 -1px;
+    z-index: 10;
+    text-align: center; }
+  .fix-nav-l .fix-nav-item {
+    float: left;
+    width: 78px;
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    cursor: pointer;
+    line-height: 46px;
+    border-right: 1px solid #dfdfdf; }
+    .fix-nav-l .fix-nav-item em {
+      margin-left: 2px; }
+    .fix-nav-l .fix-nav-item span {
+      position: relative;
+      display: inline-block;
+      width: 16px;
+      height: 20px;
+      top: 7px;
+      left: -6px; }
+    .fix-nav-l .fix-nav-item .arrow-up {
+      position: absolute;
+      font-size: 12px;
+      top: -14px; }
+    .fix-nav-l .fix-nav-item .arrow-down {
+      position: absolute;
+      top: -10px;
+      left: 5px;
+      font-size: 18px; }
+  .fix-nav-l .only-see {
+    float: left; }
+    .fix-nav-l .only-see .only-ipt {
+      margin-left: 20px;
+      width: 18px;
+      height: 20px;
+      position: relative;
+      top: 5px;
+      margin-right: 4px; }
+
+.red {
+  color: #f10180; }
+
+.fix-nav-r {
+  float: right;
+  font-size: 14px; }
+  .fix-nav-r .page-total {
+    margin-right: 22px; }
+  .fix-nav-r .pre-arrow .iconfont {
+    display: inline-block;
+    height: 24px;
+    line-height: 24px;
+    background: #fafafa;
+    border: 1px solid #dbdbdb;
+    color: #d1d1d1;
+    padding: 0 4px;
+    border-radius: 3px;
+    margin-left: 8px;
+    margin-right: 10px; }
+  .fix-nav-r .next-arrow {
+    display: inline-block;
+    height: 24px;
+    line-height: 24px;
+    padding: 0 10px 0 9px;
+    background-color: #fff;
+    border: 1px solid #b8b8b8;
+    color: #848585;
+    margin-right: 10px;
+    font-size: 12px;
+    border-radius: 3px; }
+    .fix-nav-r .next-arrow .iconfont {
+      position: relative;
+      top: 1px; }
+
+.list-wrap {
+  margin-top: 20px;
+  margin-bottom: 60px; }
+
+.lists {
+  width: 1020px; }
+  .lists .list-item {
+    float: left;
+    position: relative;
+    z-index: 1;
+    width: 235px;
+    margin-right: 20px;
+    margin-bottom: 20px; }
+
+.list-item-inner {
+  position: relative;
+  top: -11px;
+  left: -11px;
+  padding: 8px;
+  width: 235px;
+  background-color: #fff;
+  border: 1px solid #fff; }
+  .list-item-inner:hover {
+    border-color: #e5e5e5;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.1); }
+  .list-item-inner .goods-img {
+    margin-bottom: 10px; }
+    .list-item-inner .goods-img a {
+      display: block; }
+    .list-item-inner .goods-img img {
+      display: block;
+      width: 100%; }
+  .list-item-inner .goods-info .discout {
+    float: right;
+    margin-left: 10px;
+    padding-right: 3px;
+    padding-left: 3px;
+    color: #f1b13b;
+    border: 1px solid #f1b13b;
+    border-radius: 2px; }
+  .list-item-inner .goods-info .origin-price-wrap {
+    margin-right: 10px;
+    color: #f10180; }
+    .list-item-inner .goods-info .origin-price-wrap em {
+      font-size: 14px; }
+    .list-item-inner .goods-info .origin-price-wrap .origin-price {
+      color: #f10180;
+      font-size: 22px; }
+  .list-item-inner .goods-info .del-price-wrap {
+    margin-left: 10px;
+    padding-top: 5px;
+    color: #999; }
+    .list-item-inner .goods-info .del-price-wrap .del-price {
+      text-decoration: line-through; }
+  .list-item-inner em {
+    font-family: Arial !important; }
+  .list-item-inner .goods-tit {
+    margin-bottom: 5px;
+    font-weight: 400; }
+    .list-item-inner .goods-tit a {
+      color: #666; }
+
+.page-box {
+  padding: 25px 10px 40px 0;
+  text-align: center;
+  height: 46px;
+  line-height: 46px;
+  font-size: 14px; }
+  .page-box .page-sum {
+    padding-right: 20px; }
+  .page-box .page-link {
+    display: inline-block;
+    background-color: #fff;
+    border: 1px solid #b8b8b8;
+    color: #848585;
+    margin-left: 2px;
+    width: 44px;
+    border-radius: 3px;
+    font-size: 14px; }
+  .page-box .on {
+    background-color: #f10180;
+    color: #fff;
+    border-color: #f10180; }
+
+/*# sourceMappingURL=list.css.map */
