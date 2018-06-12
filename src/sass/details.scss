@@ -9,7 +9,9 @@
 }
 .details-left {
 	float: left;
+	position: relative;
 	.details-pic-big {
+		position: relative;
 		width: 420px;
     height: 420px;
     position: relative;
@@ -17,8 +19,33 @@
     margin-bottom: 7px;
     background-color: #f7f7f7;
     img {
-    	width: 100%;
+    	width: 420px;
+    	height: 420px;
     }
+    .cover {
+    	display: none;
+    	position: absolute;
+	    width: 210px;
+	    height: 210px;
+	    top: 0;
+	    background-color: rgba(0,0,0,.3);
+	    cursor: move;
+    }
+	}
+	.max-img {
+		display: none;
+		position: absolute;
+		width: 420px;
+		height: 420px;
+		overflow: hidden;
+		left: 440px;
+		top: 0;
+		z-index: 100;
+		img {
+			position: absolute;
+			width: 840px;
+			height: 840px;
+		}
 	}
 }
 .details-sm-box {

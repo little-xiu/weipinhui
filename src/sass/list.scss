@@ -180,6 +180,9 @@
 	.goods-tit {
 		margin-bottom: 5px;
 		font-weight: 400;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
 		a {
 			color: #666;
 		}
@@ -203,6 +206,7 @@
   	width: 44px;
   	border-radius: 3px;
   	font-size: 14px;
+  	cursor: pointer;
   }
   .on {
   	background-color: #f10180;

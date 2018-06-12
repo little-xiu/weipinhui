@@ -1,0 +1,51 @@
+{
+	"more": "逛更多男装品牌",
+	"title" : {
+		"img": "../img/man-tit.png",
+		"tit": "全部男装品牌 &gt;"
+	},
+	"content": [
+		{
+			"id":"017",
+			"img": "../img/man-pro1.jpg",
+			"info": "满1件打8.8折,满2件打8折,封顶",
+			"tit": "佐丹奴GIORDANO男女装混合夜惊喜特惠专场",
+			"discout": "0.9"
+		},
+		{
+			"id":"018",
+			"img": "../img/man-pro2.jpg",
+			"info": "满199减100，上不封顶",
+			"tit": "富铤FORTEI男装专场",
+			"discout": "1.5"
+		},
+		{
+			"id":"019",
+			"img": "../img/man-pro3.jpg",
+			"info": "满498元减100元,上不封顶",
+			"tit": "年中好物提前抢-森马男女混合专场",
+			"discout": "2.2"
+		},
+		{
+			"id":"020",
+			"img": "../img/man-pro4.jpg",
+			"info": "满1件打4折,封顶",
+			"tit": "最后的疯抢-奢步士SOUREPOSE男装特惠",
+			"discout": "1.7"
+		},
+		{
+			"id":"021",
+			"img": "../img/man-pro5.jpg",
+			"info": "满498元减100元,上不封顶",
+			"tit": "拓路者Pioneer Camp男装专场",
+			"discout": "0.9"
+		},
+		{
+			"id":"022",
+			"img": "../img/man-pro6.jpg",
+			"info": "满1件打8折,封顶",
+			"tit": "晚八惊喜-enk男装专场",
+			"discout": "1.1"
+		}
+	]
+}

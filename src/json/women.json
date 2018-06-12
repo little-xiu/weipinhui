@@ -1,0 +1,51 @@
+{
+	"more": "逛更多女装品牌",
+	"title" : {
+		"img": "../img/women-tit.png",
+		"tit": "全部女装品牌 &gt;"
+	},
+	"content": [
+		{
+			"id":"005",
+			"img": "../img/women-pro1.jpg",
+			"info": "满1件打8.8折,满2件打8折,封顶",
+			"tit": "音儿YINER女装专场",
+			"discout": "0.9"
+		},
+		{
+			"id":"006",
+			"img": "../img/women-pro2.jpg",
+			"info": "满199减100，上不封顶",
+			"tit": "年中尖货大钜惠-慕诗涵&缪佳&村上春&裁写&LISA LISA联合",
+			"discout": "1.5"
+		},
+		{
+			"id":"007",
+			"img": "../img/women-pro3.jpg",
+			"info": "满498元减100元,上不封顶",
+			"tit": "千柏年真丝女装专场",
+			"discout": "2.2"
+		},
+		{
+			"id":"008",
+			"img": "../img/women-pro4.jpg",
+			"info": "满1件打4折,封顶",
+			"tit": "限时钜惠，4折断码清仓-美莎帕女装",
+			"discout": "1.7"
+		},
+		{
+			"id":"009",
+			"img": "../img/women-pro5.jpg",
+			"info": "满498元减100元,上不封顶",
+			"tit": "时尚暴击-Fleur Wood女装专场",
+			"discout": "0.9"
+		},
+		{
+			"id":"010",
+			"img": "../img/women-pro6.jpg",
+			"info": "满1件打8折,封顶",
+			"tit": "衣然心动-海青蓝CYANINE SEA女装专场",
+			"discout": "1.1"
+		}
+	]
+}

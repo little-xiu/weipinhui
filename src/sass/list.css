@@ -152,7 +152,10 @@
     font-family: Arial !important; }
   .list-item-inner .goods-tit {
     margin-bottom: 5px;
-    font-weight: 400; }
+    font-weight: 400;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; }
     .list-item-inner .goods-tit a {
       color: #666; }
 
@@ -172,7 +175,8 @@
     margin-left: 2px;
     width: 44px;
     border-radius: 3px;
-    font-size: 14px; }
+    font-size: 14px;
+    cursor: pointer; }
   .page-box .on {
     background-color: #f10180;
     color: #fff;

@@ -30,8 +30,8 @@
 				</ul>
 			</div>
 			<div class="cart-main">
-				<div class="cart-inner">
-					<div class="cart-tit">
+				<div class="cart-inner" id="cart-inner">
+					<!-- <div class="cart-tit">
 						<span class="discout">折扣</span>
 						<span class="cart-subtit">已满足买1件8.5折优惠</span>
 					</div>
@@ -67,7 +67,7 @@
 						<div class="cart-item5">
 							<a href="##" class="del-btn">删除</a>
 						</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>
@@ -77,7 +77,7 @@
 					共
 					<span class="pro-num">1</span>
 					件商品  商品金额
-					<span class="pro-money yuan">￥343</span>
+					<span class="pro-money yuan">￥<em id="sum-money">343</em></span>
 				</div>
 				<div class="cart-sum-item">
 					总金额（未含运费）
@@ -94,3 +94,5 @@
 	</div>
 </body>
 </html>
+<script type="text/javascript" src="../js/lib/jquery-1.11.3.js"></script>
+<script type="text/javascript" src="../js/page/cart.js"></script>

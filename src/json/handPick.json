@@ -1,0 +1,38 @@
+[
+	{
+		"id": "001",
+		"imgBg": "../img/hp-big-bg.jpg",
+		"imgTxt": "../img/hp-big-txt.png",
+		"txt1": "绚烂夏日",
+		"txt2": "满1件打8.8折,满2件打8折,封顶",
+		"hoverImg1": "../img/hp-hover1.jpg",
+		"price": "¥1393"
+	},
+	{
+		"id": "002",
+		"imgBg": "../img/hp-big-bg2.jpg",
+		"imgTxt": "../img/hp-big-txt2.png",
+		"txt1": "六福珠宝 国际演绎",
+		"txt2": "满598减70，上不封顶",
+		"hoverImg1": "../img/hp-hover2.jpg",
+		"price": "¥8993"
+	},
+	{
+		"id": "003",
+		"imgBg": "../img/hp-big-bg3.jpg",
+		"imgTxt": "../img/hp-big-txt3.png",
+		"txt1": "当代时髦 艺术至上",
+		"txt2": "满599元减100元,上不封顶",
+		"hoverImg1": "../img/hp-hover3.jpg",
+		"price": "¥359"
+	},
+	{
+		"id": "004",
+		"imgBg": "../img/hp-big-bg4.jpg",
+		"imgTxt": "../img/hp-big-txt4.png",
+		"txt1": "盛夏臻品 裙摆飞扬",
+		"txt2": "满1件打8折,封顶",
+		"hoverImg1": "../img/hp-hover4.jpg",
+		"price": "¥659"
+	}
+]

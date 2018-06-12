@@ -113,7 +113,8 @@
         width: 22px;
         text-align: center; }
       .cart-item .cart-item3 .item3-inner .cart-reduce {
-        border-right: 1px solid #e3e2e2; }
+        border-right: 1px solid #e3e2e2;
+        cursor: pointer; }
       .cart-item .cart-item3 .item3-inner .cart-add {
         border-left: 1px solid #e3e2e2; }
       .cart-item .cart-item3 .item3-inner .cart-num {

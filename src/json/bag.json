@@ -1,0 +1,51 @@
+{
+	"more": "逛更多鞋包品牌",
+	"title" : {
+		"img": "../img/bag-tit.png",
+		"tit": "全部鞋包品牌 &gt;"
+	},
+	"content": [
+		{
+			"id":"011",
+			"img": "../img/bag-pro1.jpg",
+			"info": "满1件打8.8折,满2件打8折,封顶",
+			"tit": "百丽集团-反季清仓1件5折",
+			"discout": "0.9"
+		},
+		{
+			"id":"012",
+			"img": "../img/bag-pro2.jpg",
+			"info": "满199减100，上不封顶",
+			"tit": "立省100元-百丽BeLLE女鞋专场",
+			"discout": "1.5"
+		},
+		{
+			"id":"013",
+			"img": "../img/bag-pro3.jpg",
+			"info": "满498元减100元,上不封顶",
+			"tit": "299元任选2件-茵曼&FMM花晨月&吐火罗女鞋专场",
+			"discout": "2.2"
+		},
+		{
+			"id":"014",
+			"img": "../img/bag-pro4.jpg",
+			"info": "满1件打4折,封顶",
+			"tit": "239元任选2件-骆驼CAMEL男鞋专场",
+			"discout": "1.7"
+		},
+		{
+			"id":"015",
+			"img": "../img/bag-pro5.jpg",
+			"info": "满498元减100元,上不封顶",
+			"tit": "他她TATA&真美诗女鞋混合专场",
+			"discout": "0.9"
+		},
+		{
+			"id":"016",
+			"img": "../img/bag-pro6.jpg",
+			"info": "满1件打8折,封顶",
+			"tit": "直击底价-天美意teenmix女鞋包混合专场",
+			"discout": "1.1"
+		}
+	]
+}

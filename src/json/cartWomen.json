@@ -1,0 +1,30 @@
+[
+	{	
+		"id": "001",
+		"bigImg1": "../img/detWomen-big1.jpg",
+		"bigImg2": "../img/detWomen-big2.jpg",
+		"bigImg3": "../img/detWomen-big3.jpg",
+		"bigImg4": "../img/detWomen-big4.jpg",
+		"smImg1": "../img/detWomen-sm1.jpg",
+		"smImg2": "../img/detWomen-sm2.jpg",
+		"smImg3": "../img/detWomen-sm3.jpg",
+		"smImg4": "../img/detWomen-sm4.jpg",
+		"title": "猫须边修身牛仔短裤",
+		"price": "289",
+		"delPrice": "578"
+	},
+	{	
+		"id": "002",
+		"bigImg1": "../img/detWomen2-big1.jpg",
+		"bigImg2": "../img/detWomen2-big2.jpg",
+		"bigImg3": "../img/detWomen2-big3.jpg",
+		"bigImg4": "../img/detWomen2-big4.jpg",
+		"smImg1": "../img/detWomen2-sm1.jpg",
+		"smImg2": "../img/detWomen2-sm2.jpg",
+		"smImg3": "../img/detWomen2-sm3.jpg",
+		"smImg4": "../img/detWomen2-sm4.jpg",
+		"title": "2018夏季女款衬衫一字领露肩波点短袖",
+		"price": "279",
+		"delPrice": "478"
+	}
+]

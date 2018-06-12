@@ -7,8 +7,10 @@
     white-space: nowrap; }
 
 .details-left {
-  float: left; }
+  float: left;
+  position: relative; }
   .details-left .details-pic-big {
+    position: relative;
     width: 420px;
     height: 420px;
     position: relative;
@@ -16,7 +18,29 @@
     margin-bottom: 7px;
     background-color: #f7f7f7; }
     .details-left .details-pic-big img {
-      width: 100%; }
+      width: 420px;
+      height: 420px; }
+    .details-left .details-pic-big .cover {
+      display: none;
+      position: absolute;
+      width: 210px;
+      height: 210px;
+      top: 0;
+      background-color: rgba(0, 0, 0, 0.3);
+      cursor: move; }
+  .details-left .max-img {
+    display: none;
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    overflow: hidden;
+    left: 440px;
+    top: 0;
+    z-index: 100; }
+    .details-left .max-img img {
+      position: absolute;
+      width: 840px;
+      height: 840px; }
 
 .details-sm-box {
   text-align: center; }
