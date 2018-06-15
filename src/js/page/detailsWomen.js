@@ -159,7 +159,7 @@ $(function() {
 			this.show();
 		},
 		show: function() {
-			var str = `<div class="cart-item">
+			this.str = `<div class="cart-item">
 								<dl class="cart-item-inner">
 									<dt class="cart-item-info">
 										<a href="#">
@@ -186,12 +186,33 @@ $(function() {
 				dataType: "json",
 				success: $.proxy(this.handShow,this)
 			})
-			this.cartList.append(str);
-			this.proNum.text(1);
-			this.sumMoney.text("￥" + this.proNum.text() * this.price);
 		},
 		handShow: function(data) {
 			console.log(data)
-		}
+			if(data.status == 0) {//商品不存在
+				this.el = $("<div></div>").append(this.str);
+				this.cartList.append(this.el);
+				this.proNum.text(1);
+				this.sumMoney.text("￥" + this.proNum.text() * this.price);
+				//商品不存在，点击按钮后添加商品，数据库添加商品id 数量
+				$.ajax({
+					type: "post",
+					url: "../php/addPro.php",
+					data: {
+						id: this.id,
+						num: this.proNum.text(1)
+					},
+					dataType: "json",
+					success: function(data) {
+						console.log(data)
+					}
+				})
+			} else {
+				var num = this.proNum.text();
+				num++;
+				this.proNum.text(num);
+				this.sumMoney.text("￥" + this.proNum.text() * this.price);
+			}
+		},
 	})
 })

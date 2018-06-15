@@ -1,7 +1,6 @@
 <?php
 	include "public.php";
 	$id = $_REQUEST["id"];
-	$num = $_REQUEST["num"];
 	$sql = "SELECT * FROM `wphcart` WHERE id='$id'";
 	$res = mysqli_query($conn,$sql);
 	$n = mysqli_num_rows($res);
