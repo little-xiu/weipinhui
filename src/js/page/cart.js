@@ -2,6 +2,7 @@ function ShowData() {
 	this.box = $("#cart-inner");
 	this.sumMoney = $("#sum-money");
 	this.sumMoney2 = $(".sum-money");
+
 	this.init();
 }
 $.extend(ShowData.prototype,{
@@ -66,7 +67,7 @@ $.extend(ShowData.prototype,{
 								</div>
 								<div class="cart-item4">
 									<em class="yuan">¥</em>
-									<span>${this.data.price*this.num}</span>
+									<span class="sum-num">${this.data.price*this.num}</span>
 								</div>
 								<div class="cart-item5">
 									<a href="javascript:;" class="del-btn">删除</a>
@@ -74,7 +75,9 @@ $.extend(ShowData.prototype,{
 							</div>`;
 		this.sumMoney.text(this.data.price*this.num);
 		this.sumMoney2.text(this.data.price*this.num);
+		this.unitPrice = this.data.price;
 		this.ele = $("<div></div>").append(str);
+		this.xiaoji = this.ele.find(".sum-num");
 		this.box.append(this.ele);
 		this.delPro();
 		this.addClick();
@@ -95,6 +98,10 @@ $.extend(ShowData.prototype,{
 		var val = this.numIpt.val();
 		val++;
 		this.numIpt.val(val);
+		var sum = this.unitPrice * val;
+		this.sumMoney.text(sum);
+		this.sumMoney2.text(sum);
+		this.xiaoji.text(sum);
 	},
 	reduceClick: function() {
 		this.reduceBtn = this.ele.find(".cart-reduce");
@@ -108,6 +115,10 @@ $.extend(ShowData.prototype,{
 			val--;
 		}
 		this.numIpt.val(val);
+		var sum = this.unitPrice * val;
+		this.sumMoney.text(sum);
+		this.sumMoney2.text(sum);
+		this.xiaoji.text(sum);
 	}
 })
 new ShowData();

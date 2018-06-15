@@ -76,6 +76,7 @@ $(function() {
 										</div>`;
 			this.detailsL.append(strImg);
 			new Magnify();
+			new CartClick(this.data.smImg1,this.data.title,this.data.price,this.data.id);
 		}
 	})
 	new RenDetWomen();
@@ -115,19 +116,82 @@ $(function() {
 	})
 	new ChangeNum();
 	//点击加入购物车按钮
-	function CartClick() {
-		this.btn = $(".add-cart-btn");
+	function CartClick(img,tit,price,id) {
+		this.img = img;
+		this.tit = tit;
+		this.price = price;
+		this.id = id;
+		this.addBtn = $(".add-cart-btn");
+		this.cartHover = $("#cart-hover");
 		this.id = location.href.split("?")[1].split("=")[1];
 		this.init();
 	}
 	$.extend(CartClick.prototype,{
 		init: function() {
-			this.btn.click($.proxy(this.handlClick,this));
+			this.addBtn.click($.proxy(this.handlClick,this));
 		},
 		handlClick: function() {
 			this.val = $(".det-num").val();
-			location.href = "cart.html?id=" + this.id + ";num=" + this.val;
+			if(!localStorage.loginStatus) {
+				location.href = "login.html";//location.href可以设置以html页面为参照的相对地址；
+			} else {
+				//登录了添加商品到购物车
+				this.cartHover.stop(true).animate({right: 36}).delay(2000).animate({right: -300});			
+				new RenSideCart(this.img,this.tit,this.price,this.id);
+			}
 		}
 	})
-	new CartClick();
+	
+
+	//渲染菜单栏购物车商品
+	function RenSideCart(img,tit,price,id) {
+		this.img = img;
+		this.tit = tit;
+		this.price = price;
+		this.id = id;
+		this.cartList = $("#cart-list");
+		this.proNum = $(".pro-num");
+		this.sumMoney = $(".sum-money");
+		this.init();
+	}
+	$.extend(RenSideCart.prototype,{
+		init: function() {
+			this.show();
+		},
+		show: function() {
+			var str = `<div class="cart-item">
+								<dl class="cart-item-inner">
+									<dt class="cart-item-info">
+										<a href="#">
+											<img src="${this.img}">
+										</a>
+										<p class="pro-name">
+											<a href="#">${this.tit}</a>
+										</p>
+										<span class="pro-size">均码</span>
+									</dt>
+									<dd class="pro-num">1</dd>
+									<dd class="pro-money">
+										￥<span class="money-num">${this.price}</span>
+									</dd>
+								</dl>
+							</div>`;
+			//查询数据库判断商品是否存在，不存在追加，存在则累加；
+			$.ajax({
+				type: "post",
+				url: "../php/cartCheck.php",
+				data: {
+					id: this.id
+				},
+				dataType: "json",
+				success: $.proxy(this.handShow,this)
+			})
+			this.cartList.append(str);
+			this.proNum.text(1);
+			this.sumMoney.text("￥" + this.proNum.text() * this.price);
+		},
+		handShow: function(data) {
+			console.log(data)
+		}
+	})
 })

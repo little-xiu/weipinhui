@@ -108,6 +108,10 @@
 	    height: 32px;
 	    line-height: 32px;
 	    text-align: left;
+	    .exit-btn {
+	    	float: right;
+	    	display: none;
+	    }
   	}
   }
   div.navtab1-list {
@@ -555,6 +559,7 @@ input {
 	.main-more-tab {
 		display: none;
 		position: absolute;
+		z-index: 100;
 		width: 558px;
     max-height: 335px;
     box-shadow: 0 0 3px 3px rgba(0,0,0,.1);
@@ -1032,6 +1037,7 @@ input {
 //-----fixed-floor--------
 
 .fixed-floor {
+	display: none;
   position: fixed;
   top: 112px;
   left: 50%;
@@ -1063,12 +1069,28 @@ input {
   		}
   	}
   }
+  .on {
+  	background: #f10180;
+  	color: #fff;
+  	border-radius: 5px;
+  	.iconfont {
+  		color: #fff;
+  	}
+  	&:hover {
+  		background: #f10180;
+  		color: #fff;
+  		border-radius: 5px;
+  		.iconfont {
+  			color: #fff;
+  		}
+  	}
+  }
 }
 .fixed-bar {
 	position: fixed;
   right: 0;
   top: 0;
-  z-index: 101;
+  z-index: 301;
   width: 36px;
   height: 100%;
   .bar-item-wrap {
@@ -1162,6 +1184,7 @@ $fixedBarBg: #df147f;
 	}
 }
 .shop-bag {
+	position:relative;
 	background-color: #df147f;
 	border-top: 1px solid #262626;
 	padding-bottom: 18px;
@@ -1180,6 +1203,173 @@ $fixedBarBg: #df147f;
     margin: 0 auto;
     margin-bottom: 8px;
     margin-top: 10px;
+	}
+}
+.cart-hover {
+	position: absolute;
+	z-index: -1;
+	width: 246px;
+	right: -300px;
+	top: 0;
+	overflow: hidden;
+	padding: 0 14px;
+	background-color: #fff;
+	border: 1px solid #cecece;
+	border-right: none;
+	-webkit-transition: right .2s linear;
+	transition: right .2s linear;
+	box-shadow: -5px 1px 8px rgba(0,0,0,.15);
+	.cart-hover-top {
+		overflow: hidden;
+		height: 24px;
+		line-height: 24px;
+    padding: 10px 0;
+    border-bottom: 1px solid #dedcdc;
+    a {
+    	font-size: 16px;
+    }
+    .close-btn {
+    	float: right;
+    	font-size: 24px;
+    	cursor: pointer;
+    }
+	}
+	.cart-pro-box {
+		position: relative;
+		overflow: hidden;
+		width: 258px;
+		height: 630px;
+	}
+	.cart-inner {
+		width: 244px;
+		padding-bottom: 20px;
+	}
+	.cart-list {
+		overflow: hidden;
+		padding: 10px 0 4px;
+	}
+	.cart-item {
+		position: relative;
+		width: 248px;
+	}
+	.cart-item-inner {
+		overflow: hidden;
+		padding: 10px 0 4px;
+	}
+	.cart-item-info {
+		float: left;
+    width: 140px;
+    overflow: hidden;
+    img {
+    	float: left;
+    	margin-right: 10px;
+    	width: 49px;
+    	height: 61px;
+    }
+    .pro-name {
+    	margin-bottom: 10px;
+    	height: 28px;
+    	line-height: 14px;
+    	overflow: hidden;
+    }
+    .pro-size {
+    	color: #9f9e9e;
+    }
+	}
+	.pro-num {
+		float: left;
+		width: 50px;
+		line-height: 36px;
+		text-align: right;
+	}
+	.pro-money {
+		float: left;
+		width: 50px;
+		line-height: 36px;
+		text-align: right;
+		font-size: 14px;
+    font-weight: 100;
+    color: #f10180;
+    font-family: arial;
+	}
+	.cart-bot	{
+		margin-top: 16px;
+		padding: 16px 0 10px;
+		border-top: 1px solid #d3d1d1;
+		background-color: #fff;
+		position: relative;
+		z-index: 9;
+	}
+	.delivery-info {
+		line-height: 18px;
+		color: #666;
+		text-align: left;
+		padding: 0 0 16px;
+		.pro-num {
+			float: none;
+			color: #f10180;
+			font-weight: 700;
+		}
+		.sum-money {
+			font-family: arial;
+	    position: absolute;
+	    right: 0;
+	    font-size: 18px;
+	    margin-left: 20px;
+		}
+	}
+	.check-btn {
+		width: 100%;
+    height: 36px;
+    line-height: 34px;
+    font-size: 16px;
+    display: block;
+    margin: 14px auto 0;
+    background-color: #f10180;
+    border-radius: 3px;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+	}
+	.cart-yao {
+		position: fixed;
+		bottom: 0;
+		width: 273px;
+		height: 48px;
+		background-color: #fcedf2;
+		border: 1px solid #ffbde0;
+		margin-top: 11px;
+		font-size: 14px;
+		margin-left: -15px;
+	}
+	.cart-yao-btn {
+		display: block;
+		width: 273px;
+		height: 48px;
+	}
+	.yao-l {
+		float: left;
+		padding: 14px 0 0 14px;
+		i {
+			display: inline-block;
+			width: 24px;
+			height: 16px;
+			border-radius: 8px;
+			line-height: 16px;
+			color: #fff;
+			text-align: center;
+			background-color: #f00581;
+			margin-left: 8px;
+		}
+	}
+	.yao-r {
+		color: #e00078;
+		float: right;
+		padding: 15px 14px 0 14px;
+		i {
+			position: relative;
+			margin-left: 10px;
+		}
 	}
 }
 .coupon-box {

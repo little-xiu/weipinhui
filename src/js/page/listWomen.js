@@ -14,7 +14,7 @@ $(function() {
 		loadImg: function() {
 			$.ajax({
 				type: "post",
-				url: "../../json/listWomen.json",
+				url: "../json/listWomen.json",
 				dataType: "json",
 				success: $.proxy(this.handleLoadImg,this)
 			});

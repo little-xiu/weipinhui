@@ -50,13 +50,18 @@ body {
       padding: 6px 10px;
       width: 278px;
       border: 1px solid #b2b2b2; }
+    .login-box .login-item .error-ipt {
+      border: 1px solid #f64a4a; }
     .login-box .login-item .error {
+      display: none;
       position: absolute;
       right: 8px;
       top: 6px;
-      width: 20px;
+      width: 19px;
       height: 20px;
       background: url("../img/error-icon.png"); }
+    .login-box .login-item .success {
+      background: url("../img/success-icon.bmp"); }
     .login-box .login-item .code-error {
       right: 134px; }
     .login-box .login-item .phone-code {
@@ -72,7 +77,13 @@ body {
       color: #999;
       background: #d0d0d0;
       cursor: not-allowed;
-      border-radius: 3px; }
+      border-radius: 3px;
+      text-align: center; }
+    .login-box .login-item .active {
+      color: #e00078;
+      background-color: #ffbee0;
+      border: 1px solid #ffbee0;
+      cursor: pointer; }
     .login-box .login-item .login-tips {
       color: #f64a4a;
       min-height: 19px;
@@ -81,15 +92,65 @@ body {
       text-overflow: ellipsis;
       margin-top: 2px;
       margin-bottom: 5px; }
-      .login-box .login-item .login-tips span {
-        display: none; }
-  .login-box .accept-terms .accept-ipt {
-    position: relative;
-    width: 16px;
-    height: 16px;
-    top: 3px; }
-  .login-box .accept-terms .accept-tips {
-    color: #f00; }
+      .login-box .login-item .login-tips .pwd-strong {
+        background-color: #e0e0e0;
+        width: 30px;
+        height: 8px;
+        display: inline-block;
+        overflow: hidden; }
+    .login-box .login-item .pwd-strong-inner {
+      width: 10px;
+      background-color: #f64a4a;
+      display: inline-block;
+      height: 8px;
+      line-height: 8px;
+      position: relative;
+      top: -6px; }
+  .login-box .accept-terms {
+    height: 74px; }
+    .login-box .accept-terms .accept-ipt {
+      position: relative;
+      width: 16px;
+      height: 16px;
+      top: 3px; }
+    .login-box .accept-terms .accept-tips {
+      display: none;
+      color: #f00; }
+  .login-box span {
+    display: none; }
+
+.login-tips .weak-wrap {
+  margin-right: 4px; }
+.login-tips .show {
+  display: inline-block; }
+  .login-tips .show .pwd-strong-inner {
+    display: inline-block; }
+  .login-tips .show .pwd-strong-weak {
+    display: inline-block; }
+  .login-tips .show .pwd-strong-mid {
+    display: none; }
+  .login-tips .show .pwd-strong-max {
+    display: none; }
+.login-tips .show + #pwd-msg {
+  display: inline-block; }
+.login-tips .mid-wrap .pwd-strong-weak {
+  display: none; }
+.login-tips .mid-wrap .pwd-strong-mid {
+  display: inline-block; }
+.login-tips .mid-wrap .pwd-strong-max {
+  display: none; }
+.login-tips .mid-wrap .pwd-strong-inner {
+  width: 20px;
+  background-color: #f9a123; }
+.login-tips .strong-wrap .pwd-strong-inner {
+  width: 30px;
+  background-color: #49b05c; }
+.login-tips .strong-wrap .pwd-strong-weak {
+  display: none; }
+.login-tips .strong-wrap .pwd-strong-mid {
+  display: none; }
+.login-tips .strong-wrap .pwd-strong-max {
+  display: inline-block; }
 
 .forget-box .remerber-box {
   float: left; }
@@ -109,6 +170,7 @@ body {
 .login-btn {
   background-color: #f10180;
   border: 1px solid #f10180;
+  outline: none;
   color: #fff;
   border-radius: 3px;
   display: block;

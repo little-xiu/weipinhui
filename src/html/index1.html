@@ -20,22 +20,23 @@
 			</div>
 			<ul class="topnav-list">
 				<li class="tnav-item1">
-					<a href="##">请登录</a>
+					<a href="javascript:;" class="login-btn">请登录</a>
 					<i class="top-slash"></i>
 					<span class="white-line"></span>
 					<div class="tnav-item1-tab">
 						<div class="tnav-tab1-info clearfix">
 							<span class="tab1-bg"></span>
 							<div class="tab1-info">
-								<a href="##">
+								<a href="javascript:;" class="login-btn">
 									<span>您好！</span>
 									<span>[请登录]</span>
 								</a>
+								<a href="javascript:;" class="exit-btn">[退出]</a>
 							</div>
 						</div>
 						<div class="navtab1-list">
 							<span>
-								<a href="##">我的收藏</a>
+								<a href="javascript:;">我的收藏</a>
 							</span>
 							<span>
 								<a href="##">我的收藏</a>
@@ -324,7 +325,7 @@
 	</div>
 	<div class="main-wrap">
 		<div class="w1000">
-			<div class="main-title">
+			<div class="main-title floor-item">
 				<img src="../img/clock2.png" alt="">
 				<a href="##" class="refresh-link">
 					马上刷新 
@@ -438,7 +439,7 @@
 					</div> 
 				</div> -->				
 			</div>
-			<div class="women-box" id="women-box">
+			<div class="women-box floor-item" id="women-box">
 				<!-- <div class="women-tit">
 					<img src="../img/women-tit.png">
 					<a href="##" class="all-women-btn">全部女装品牌 &gt;</a>
@@ -474,13 +475,13 @@
 
 				<!-- </div>	 -->
 			</div> <!-- women-box -->
-			<div id="bag-box"></div>
-			<div id="man-box"></div>
-			<div id="jewelry-box"></div>
+			<div id="bag-box" class="floor-item"></div>
+			<div id="man-box" class="floor-item"></div>
+			<div id="jewelry-box" class="floor-item"></div>
 		</div> <!-- w1000 -->
 	</div> <!-- main-wrap -->
 	<div class="fixed-floor">
-		<a href="##" class="floor-link">
+		<a href="##" class="floor-link on">
 			<i class="iconfont">&#xe61b;</i>
 			<span>精选</span>
 		</a>
@@ -541,11 +542,60 @@
 				</div>
 			</div>
 			<div class="bar-item shop-bag">
-				<a href="##" class="bar-link">
+				<a href="##" class="bar-link" id="cart-btn">
 					<i class="iconfont">&#xe6c7;</i><br/>
 					<span class="bar-name">购物袋</span>
 					<span class="cart-num">0</span>
 				</a>
+			</div>
+			<div class="cart-hover" id="cart-hover">
+				<div class="cart-hover-top">
+					<i class="close-btn">x</i>
+					<a href="javascript:;">逛超时了，请尽快结算。</a>
+				</div>
+				<div class="cart-pro-box">
+					<div class="cart-inner">
+						<div class="cart-list">
+							<div class="cart-item">
+								<dl class="cart-item-inner">
+									<dt class="cart-item-info">
+										<a href="#">
+											<img src="../img/man-tit.png">
+										</a>
+										<p class="pro-name">
+											<a href="#">韩后花痴水漾保湿霜45g 护肤品</a>
+										</p>
+										<span class="pro-size">均码</span>
+									</dt>
+									<dd class="pro-num">2</dd>
+									<dd class="pro-money">
+										￥<span class="money-num">88</span>
+									</dd>
+								</dl>
+							</div>
+						</div>
+						<div class="cart-bot">
+							<p class="delivery-info">
+								<span class="pro-num">2</span>
+								<span class="delivery-address">件商品配送至深圳市</span>
+								<span class="sum-money">￥230</span>
+							</p>
+							<a class="check-btn">去购物袋结算</a>
+							<div class="cart-yao">
+								<a class="cart-yao-btn">
+									<span class="yao-l">
+										医药商品
+										<i>0</i>
+									</span>
+									<span class="yao-r">
+										去医药清单
+										<i>&gt;</i>
+									</span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 			<div class="coupon-box">
 				<a href="##" class="coupon-link">
@@ -578,7 +628,7 @@
 				<p class="coupon-hover">会员反馈</p>
 			</div>
 			<div class="coupon-box">
-				<a href="##" class="coupon-link">
+				<a href="##" class="coupon-link" id="back-top">
 					<i class="iconfont">&#xe60e;</i><br/>
 				</a>
 				<p class="coupon-hover">返回顶部</p>
@@ -681,4 +731,6 @@
 </html>
 <script type="text/javascript" src="../js/lib/jquery-1.11.3.js"></script>
 <script type="text/javascript" src="../js/page/index.js"></script>
-<script type="text/javascript" src="../js/page/renWomen.js"></script>
+<script type="text/javascript" src="../js/common/backTop.js"></script>
+<script type="text/javascript" src="../js/common/login.js"></script>
+<script type="text/javascript" src="../js/common/cartBtn.js"></script>

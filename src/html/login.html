@@ -9,28 +9,28 @@
 <body>
 	<div class="login-wrap">
 		<div class="login-top clearfix">
-			<a href="##"></a>
+			<a href="javascript:;" id="logo"></a>
 			<span></span>
 		</div>
 		<div class="login-main">
 			<div class="login-box">
-				<form action="#">
+				<form action="javascript:;">
 					<div class="login-tit clearfix">
 						<a href="##">免费注册</a>
 						<span>如有账号，请登录</span>
 					</div>
 					<div class="login-item">
-						<input type="text" placeholder="手机号/用户名/邮箱" class="login-txt login-ipt">
-						<span class="error"></span>
+						<input type="text" placeholder="手机号/用户名/邮箱" class="login-txt login-ipt" id="login-ipt">
+						<span class="error" id="phone-icon"></span>
 						<p class="login-tips">
-							<span>请输入登录名</span>
+							<span id="phone-msg">请输入登录名</span>
 						</p>
 					</div>
 					<div class="login-item">
-						<input type="password" class="login-pwd login-ipt" placeholder="密码">
-						<span class="error"></span>
+						<input type="password" class="login-pwd login-ipt" placeholder="密码" id="login-pwd">
+						<span class="error" id="pwd-icon"></span>
 						<p class="login-tips">
-							<span>请输入密码</span>
+							<span id="pwd-msg">请输入密码</span>
 						</p>
 					</div>
 					<div class="forget-box clearfix">
@@ -41,7 +41,7 @@
 						<a href="##" class="forget-btn">忘记密码 &gt;</a>
 					</div>
 					<div>
-						<button type="submit" class="login-btn">登录</button>
+						<button type="button" class="login-btn" id="login-btn">登录</button>
 					</div>
 				</form>
 				<p class="sites-login">合作网站账号登录：</p>
@@ -58,3 +58,5 @@
 	</div>
 </body>
 </html>
+<script type="text/javascript" src="../js/lib/jquery-1.11.3.js"></script>
+<script type="text/javascript" src="../js/page/login.js"></script>
