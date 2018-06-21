@@ -122,6 +122,8 @@ $(function() {
 		this.price = price;
 		this.id = id;
 		this.addBtn = $(".add-cart-btn");
+		//点击结算按钮跳转购物车页面
+		this.checkBtn = $(".check-btn");
 		this.cartHover = $("#cart-hover");
 		this.id = location.href.split("?")[1].split("=")[1];
 		this.init();
@@ -129,9 +131,10 @@ $(function() {
 	$.extend(CartClick.prototype,{
 		init: function() {
 			this.addBtn.click($.proxy(this.handlClick,this));
+			this.checkBtn.click($.proxy(this.handCheck,this));
 		},
 		handlClick: function() {
-			this.val = $(".det-num").val();
+			// this.val = $(".det-num").val();
 			if(!localStorage.loginStatus) {
 				location.href = "login.html";//location.href可以设置以html页面为参照的相对地址；
 			} else {
@@ -139,6 +142,9 @@ $(function() {
 				this.cartHover.stop(true).animate({right: 36}).delay(2000).animate({right: -300});			
 				new RenSideCart(this.img,this.tit,this.price,this.id);
 			}
+		},
+		handCheck: function() {
+			location.href = "cart.html?id=this.id";
 		}
 	})
 	
@@ -159,60 +165,79 @@ $(function() {
 			this.show();
 		},
 		show: function() {
-			this.str = `<div class="cart-item">
-								<dl class="cart-item-inner">
-									<dt class="cart-item-info">
-										<a href="#">
-											<img src="${this.img}">
-										</a>
-										<p class="pro-name">
-											<a href="#">${this.tit}</a>
-										</p>
-										<span class="pro-size">均码</span>
-									</dt>
-									<dd class="pro-num">1</dd>
-									<dd class="pro-money">
-										￥<span class="money-num">${this.price}</span>
-									</dd>
-								</dl>
-							</div>`;
 			//查询数据库判断商品是否存在，不存在追加，存在则累加；
 			$.ajax({
 				type: "post",
-				url: "../php/cartCheck.php",
+				url: "../php/addPro.php",
 				data: {
-					id: this.id
+					id: this.id,
+					num: parseInt(this.proNum.eq(0).text()),
+					title: this.tit,
+					img: this.img,
+					price: this.price
 				},
 				dataType: "json",
 				success: $.proxy(this.handShow,this)
 			})
 		},
 		handShow: function(data) {
-			console.log(data)
-			if(data.status == 0) {//商品不存在
-				this.el = $("<div></div>").append(this.str);
-				this.cartList.append(this.el);
-				this.proNum.text(1);
-				this.sumMoney.text("￥" + this.proNum.text() * this.price);
-				//商品不存在，点击按钮后添加商品，数据库添加商品id 数量
-				$.ajax({
-					type: "post",
-					url: "../php/addPro.php",
-					data: {
-						id: this.id,
-						num: this.proNum.text(1)
-					},
-					dataType: "json",
-					success: function(data) {
-						console.log(data)
-					}
-				})
-			} else {
-				var num = this.proNum.text();
-				num++;
-				this.proNum.text(num);
-				this.sumMoney.text("￥" + this.proNum.text() * this.price);
-			}
+			if(data.status == 2) {//商品添加
+				new ShowData();
+			} else if (data.status == 1){
+				this.num = parseInt(this.proNum.eq(0).text());
+				this.num += 1;
+				this.proNum.text(this.num);
+				this.sumMoney.text("￥" +parseInt(this.proNum.eq(0).text()) * this.price);
+			}		
 		},
 	})
+
+	function ShowData() {
+		this.cartList = $("#cart-list");
+		this.proNum = $(".pro-num");
+		this.sumMoney = $(".sum-money");
+		this.init();
+	}
+	$.extend(ShowData.prototype,{
+		init: function() {
+			this.requestData();
+		},
+		requestData: function() {
+			$.ajax({
+				type: "post",
+				url: "../php/show.php",
+				dataType: "json",
+				success: $.proxy(this.handReq,this)
+			})
+		},
+		handReq: function(data) {
+			if(data[0].status == 1) {//购物车存在商品
+				var data = data[1][0];
+				this.str = `<div class="cart-item">
+									<dl class="cart-item-inner">
+										<dt class="cart-item-info">
+											<a href="#">
+												<img src="${data.img}">
+											</a>
+											<p class="pro-name">
+												<a href="#">${data.title}</a>
+											</p>
+											<span class="pro-size">均码</span>
+										</dt>
+										<dd class="pro-num">1</dd>
+										<dd class="pro-money">
+											￥<span class="money-num">${data.price}</span>
+										</dd>
+									</dl>
+								</div>`;
+				this.el = $("<div></div>").append(this.str);
+				this.cartList.append(this.el);
+				this.proNum.text(data.num);
+				this.sumMoney.text(data.num*data.price);
+			} else {
+				this.cartList.html("购物车啥都没有");
+			}
+		}
+	})
+	new ShowData();
 })

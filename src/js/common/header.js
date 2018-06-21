@@ -334,7 +334,7 @@ $.extend(FixBar.prototype,{
 						</div>
 						<div class="cart-bot">
 							<p class="delivery-info">
-								<span class="pro-num">2</span>
+								<span class="pro-num">0</span>
 								<span class="delivery-address">件商品配送至深圳市</span>
 								<span class="sum-money">￥230</span>
 							</p>
@@ -391,7 +391,7 @@ $.extend(FixBar.prototype,{
 				</a>
 				<p class="coupon-hover">返回顶部</p>
 			</div>
-		</div> <!-- bar-item-wrap -->
+		</div> 
 	</div>`;
 		this.el = $("<div></div>").append(str);
 		this.box.append(this.el);
