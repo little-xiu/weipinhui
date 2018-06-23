@@ -334,7 +334,7 @@ $.extend(FixBar.prototype,{
 						</div>
 						<div class="cart-bot">
 							<p class="delivery-info">
-								<span class="pro-num">0</span>
+								<span class="pro-num" id="sum-num">0</span>
 								<span class="delivery-address">件商品配送至深圳市</span>
 								<span class="sum-money">￥230</span>
 							</p>

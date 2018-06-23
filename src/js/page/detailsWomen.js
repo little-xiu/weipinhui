@@ -121,11 +121,11 @@ $(function() {
 		this.tit = tit;
 		this.price = price;
 		this.id = id;
+		this.iptNum = $("#ipt-num");
 		this.addBtn = $(".add-cart-btn");
 		//点击结算按钮跳转购物车页面
 		this.checkBtn = $(".check-btn");
 		this.cartHover = $("#cart-hover");
-		this.id = location.href.split("?")[1].split("=")[1];
 		this.init();
 	}
 	$.extend(CartClick.prototype,{
@@ -134,68 +134,45 @@ $(function() {
 			this.checkBtn.click($.proxy(this.handCheck,this));
 		},
 		handlClick: function() {
-			// this.val = $(".det-num").val();
 			if(!localStorage.loginStatus) {
 				location.href = "login.html";//location.href可以设置以html页面为参照的相对地址；
 			} else {
 				//登录了添加商品到购物车
-				this.cartHover.stop(true).animate({right: 36}).delay(2000).animate({right: -300});			
-				new RenSideCart(this.img,this.tit,this.price,this.id);
+				this.cartHover.stop(true).animate({right: 36}).delay(2000).animate({right: -300});
+				//后台查询数据库判断商品是否存在，不存在追加，存在则累加；	
+				$.ajax({
+					type: "post",
+					url: "../php/addPro.php",
+					data: {
+						id: this.id,
+						num: this.iptNum.val(),
+						title: this.tit,
+						img: this.img,
+						price: this.price
+					},
+					success:$.proxy(this.handShow,this)
+				})
+			}
+		},
+		handShow: function(data) {
+			let newData = JSON.parse(data);
+			if(newData.status == 1) {//后台定义数量更新成功
+				new ShowData().update();
+			} else if(newData.status == 2) {//商品添加成功
+				new ShowData();
 			}
 		},
 		handCheck: function() {
 			location.href = "cart.html?id=this.id";
 		}
 	})
-	
-
-	//渲染菜单栏购物车商品
-	function RenSideCart(img,tit,price,id) {
-		this.img = img;
-		this.tit = tit;
-		this.price = price;
-		this.id = id;
-		this.cartList = $("#cart-list");
-		this.proNum = $(".pro-num");
-		this.sumMoney = $(".sum-money");
-		this.init();
-	}
-	$.extend(RenSideCart.prototype,{
-		init: function() {
-			this.show();
-		},
-		show: function() {
-			//查询数据库判断商品是否存在，不存在追加，存在则累加；
-			$.ajax({
-				type: "post",
-				url: "../php/addPro.php",
-				data: {
-					id: this.id,
-					num: parseInt(this.proNum.eq(0).text()),
-					title: this.tit,
-					img: this.img,
-					price: this.price
-				},
-				dataType: "json",
-				success: $.proxy(this.handShow,this)
-			})
-		},
-		handShow: function(data) {
-			if(data.status == 2) {//商品添加
-				new ShowData();
-			} else if (data.status == 1){
-				this.num = parseInt(this.proNum.eq(0).text());
-				this.num += 1;
-				this.proNum.text(this.num);
-				this.sumMoney.text("￥" +parseInt(this.proNum.eq(0).text()) * this.price);
-			}		
-		},
-	})
 
 	function ShowData() {
 		this.cartList = $("#cart-list");
-		this.proNum = $(".pro-num");
 		this.sumMoney = $(".sum-money");
+		this.sumNum = $("#sum-num");
+		this.sumNumSm = $(".cart-num");
+		this.data = [];
 		this.init();
 	}
 	$.extend(ShowData.prototype,{
@@ -212,31 +189,45 @@ $(function() {
 		},
 		handReq: function(data) {
 			if(data[0].status == 1) {//购物车存在商品
-				var data = data[1][0];
-				this.str = `<div class="cart-item">
-									<dl class="cart-item-inner">
-										<dt class="cart-item-info">
-											<a href="#">
-												<img src="${data.img}">
-											</a>
-											<p class="pro-name">
-												<a href="#">${data.title}</a>
-											</p>
-											<span class="pro-size">均码</span>
-										</dt>
-										<dd class="pro-num">1</dd>
-										<dd class="pro-money">
-											￥<span class="money-num">${data.price}</span>
-										</dd>
-									</dl>
-								</div>`;
+				this.data = data[1];
+				this.str = "";
+				var tempMoney = 0;
+				var tempNum = 0;
+				for(var i = 0; i < this.data.length; i++) {
+					this.str += `<div class="cart-item">
+										<dl class="cart-item-inner">
+											<dt class="cart-item-info">
+												<a href="#">
+													<img src="${this.data[i].img}">
+												</a>
+												<p class="pro-name">
+													<a href="#">${this.data[i].title}</a>
+												</p>
+												<span class="pro-size">均码</span>
+											</dt>
+											<dd class="single-num">1</dd>
+											<dd class="pro-money">
+												￥<span class="money-num">${this.data[i].price}</span>
+											</dd>
+										</dl>
+									</div>`;
+					tempMoney += this.data[i].num*this.data[i].price;
+					tempNum += Number(this.data[i].num);
+				}
+				this.sumMoney.text(tempMoney);
+				this.sumNum.text(tempNum);
+				this.sumNumSm.text(tempNum);
 				this.el = $("<div></div>").append(this.str);
-				this.cartList.append(this.el);
-				this.proNum.text(data.num);
-				this.sumMoney.text(data.num*data.price);
+				this.cartList.html(this.el);
+				this.update();//更新数量
 			} else {
 				this.cartList.html("购物车啥都没有");
 			}
+		},
+		update: function() {
+			this.data.forEach(function(item,i) {	
+				$('.single-num').eq(i).text(item.num);
+			})
 		}
 	})
 	new ShowData();

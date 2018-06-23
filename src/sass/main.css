@@ -1173,7 +1173,7 @@ input {
       overflow: hidden; }
     .cart-hover .cart-item-info .pro-size {
       color: #9f9e9e; }
-  .cart-hover .pro-num {
+  .cart-hover .single-num {
     float: left;
     width: 50px;
     line-height: 36px;

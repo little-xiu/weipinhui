@@ -16,12 +16,14 @@
 		$sql2 = "UPDATE `wphcart` SET `num`='$numOri' WHERE id='$id'";
 		$rows2 = mysqli_query($conn,$sql2);
 		if($rows2) {
-			echo json_encode(array("status"=>1,"info"=>"数量更新成功"));
+			echo json_encode(array(
+				"status"=>1,
+				"info"=>"数量更新成功"
+			));
 		} else {
 			echo json_encode(array("status"=>-1,"info"=>"数量更新失败"));
 		}
-	} else {
-		$sql = "INSERT INTO `wphcart`(`id`, `num`) VALUES ('$id','$num')";
+	} else {//购物车无该商品则插入商品
 		$sql = "INSERT INTO `wphcart`(`id`, `num`, `title`, `img`, `price`) VALUES ('$id','$num','$tit','$img','$price')";
 		$rows = mysqli_query($conn,$sql);
 		if($rows) {
