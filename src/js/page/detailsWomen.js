@@ -123,15 +123,12 @@ $(function() {
 		this.id = id;
 		this.iptNum = $("#ipt-num");
 		this.addBtn = $(".add-cart-btn");
-		//点击结算按钮跳转购物车页面
-		this.checkBtn = $(".check-btn");
 		this.cartHover = $("#cart-hover");
 		this.init();
 	}
 	$.extend(CartClick.prototype,{
 		init: function() {
 			this.addBtn.click($.proxy(this.handlClick,this));
-			this.checkBtn.click($.proxy(this.handCheck,this));
 		},
 		handlClick: function() {
 			if(!localStorage.loginStatus) {
@@ -161,74 +158,7 @@ $(function() {
 			} else if(newData.status == 2) {//商品添加成功
 				new ShowData();
 			}
-		},
-		handCheck: function() {
-			location.href = "cart.html?id=this.id";
 		}
 	})
 
-	function ShowData() {
-		this.cartList = $("#cart-list");
-		this.sumMoney = $(".sum-money");
-		this.sumNum = $("#sum-num");
-		this.sumNumSm = $(".cart-num");
-		this.data = [];
-		this.init();
-	}
-	$.extend(ShowData.prototype,{
-		init: function() {
-			this.requestData();
-		},
-		requestData: function() {
-			$.ajax({
-				type: "post",
-				url: "../php/show.php",
-				dataType: "json",
-				success: $.proxy(this.handReq,this)
-			})
-		},
-		handReq: function(data) {
-			if(data[0].status == 1) {//购物车存在商品
-				this.data = data[1];
-				this.str = "";
-				var tempMoney = 0;
-				var tempNum = 0;
-				for(var i = 0; i < this.data.length; i++) {
-					this.str += `<div class="cart-item">
-										<dl class="cart-item-inner">
-											<dt class="cart-item-info">
-												<a href="#">
-													<img src="${this.data[i].img}">
-												</a>
-												<p class="pro-name">
-													<a href="#">${this.data[i].title}</a>
-												</p>
-												<span class="pro-size">均码</span>
-											</dt>
-											<dd class="single-num">1</dd>
-											<dd class="pro-money">
-												￥<span class="money-num">${this.data[i].price}</span>
-											</dd>
-										</dl>
-									</div>`;
-					tempMoney += this.data[i].num*this.data[i].price;
-					tempNum += Number(this.data[i].num);
-				}
-				this.sumMoney.text(tempMoney);
-				this.sumNum.text(tempNum);
-				this.sumNumSm.text(tempNum);
-				this.el = $("<div></div>").append(this.str);
-				this.cartList.html(this.el);
-				this.update();//更新数量
-			} else {
-				this.cartList.html("购物车啥都没有");
-			}
-		},
-		update: function() {
-			this.data.forEach(function(item,i) {	
-				$('.single-num').eq(i).text(item.num);
-			})
-		}
-	})
-	new ShowData();
 })

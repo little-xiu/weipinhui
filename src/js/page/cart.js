@@ -7,6 +7,8 @@ function ShowData() {
 $.extend(ShowData.prototype,{
 	init: function() {
 		this.requestData();
+		//对未来元素事件绑定（购物车增删改），用事件代理做
+		this.proxyClick();
 	},
 	requestData: function() {
 		$.ajax({
@@ -21,8 +23,8 @@ $.extend(ShowData.prototype,{
 			var data = data[1];
 			this.str = "";
 			//获取总数量可在循环前设置临时变量，在循环中+=自身，再赋值给别人
-			var tempNum = 0;
-			var tempPrice = 0;
+			var tempNum = 0;//存储所有商品数量
+			var tempPrice = 0;//存储所有商品小计之和
 			for(var i = 0; i < data.length; i++) {
 				this.str += `<div class="cart-tit">
 							<span class="discout">折扣</span>
@@ -50,7 +52,7 @@ $.extend(ShowData.prototype,{
 								<div class="item3-inner">
 									<a class="cart-reduce">-</a>
 									<input type="text" value="${data[i].num}" class="cart-num">
-									<a href="##" class="cart-add">+</a>
+									<a href="javascript:;" class="cart-add">+</a>
 								</div>
 							</div>
 							<div class="cart-item4">
@@ -58,30 +60,28 @@ $.extend(ShowData.prototype,{
 								<span class="smSumMoney">${data[i].num * data[i].price}</span>
 							</div>
 							<div class="cart-item5">
-								<a href="##" class="del-btn">删除</a>
+								<a href="javascript:;" class="del-btn">删除</a>
 							</div>
 						</div>`;
 				tempNum += Number(data[i].num);
-				tempPrice += tempNum * data[i].price;
+				tempPrice += data[i].num * data[i].price;
 			}
 			this.ele = $("<div></div>").append(this.str);
-			this.cartList.append(this.ele);
+			this.cartList.html(this.ele);
 			this.proNum.text(tempNum);
-			this.sumMoney.text(tempNum*tempPrice);
-			this.delPro();
-			this.addClick();
-			this.reduceClick();
+			this.sumMoney.text(tempPrice);
 		} else {
 			this.cartList.html("购物车啥都没有");
 		}
 	},
-	delPro: function() {
-		var delBtn = this.ele.find(".del-btn");
-		delBtn.click(function() {
-			var targetEle = $(this).parent().parent();
-			var id = targetEle.attr("data-id");
-			this.delNum = $(this).parent().prev().prev().find(".cart-num").val();
-			//数据库商品删除
+	proxyClick: function() {
+		this.cartList.click($.proxy(this.handProxy,this));
+	},
+	handProxy: function(event) {
+		var target = event.target;//是DOM对象
+		//删除
+		if(target.tagName == "A" && target.className == "del-btn") {
+			var id = $(target).parent().parent().attr("data-id");
 			$.ajax({
 				url: "../php/delPro.php",
 				type: "post",
@@ -89,100 +89,41 @@ $.extend(ShowData.prototype,{
 					id: id
 				},
 				success: $.proxy(this.handDelAjax,this)
+			})//增加
+		} else if(target.tagName == "A" && target.className == "cart-add") {
+			var id = $(target).parent().parent().parent().attr("data-id");
+			var num = Number($(target).prev().val()) + 1;
+			$.ajax({
+				url: "../php/update.php",
+				type: "post",
+				data: {
+					id: id,
+					num: num
+				},
+				success: $.proxy(this.handAdd,this)
+			})//减少
+		} else if(target.tagName == "A" && target.className == "cart-reduce") {
+			var id = $(target).parent().parent().parent().attr("data-id");
+			var num = Math.max(1,Number($(target).next().val()) - 1);
+			$.ajax({
+				url: "../php/update.php",
+				type: "post",
+				data: {
+					id:id,
+					num:num
+				},
+				success: $.proxy(this.handReduce,this)
 			})
-		});
-	},
-	handDelAjax: function(data) {
-		var numOri = this.proNum.text();
-		var numChange = numOri - this.delNum;
-		this.proNum.text(numChange);
-		targetEle.prev().remove();//先删除前一个兄弟元素，然后再删除自身
-		targetEle.remove();
-	},
-	addClick: function() {
-		this.addBtn = this.ele.find(".cart-add");
-		//点击数量增加
-		this.addBtn.each($.proxy(this.handAddEach,this));
-	},
-	handAddEach: function(i) {
-		this.addBtn.eq(i).on("click",i,$.proxy(this.handlAddClick,this));
-	},
-	handlAddClick: function(event) {
-		var index = event.data;
-		var targetEle = this.addBtn.eq(index);
-		var ipt = targetEle.prev();
-		var val = Number(ipt.val());
-		var id = targetEle.parent().parent().parent().attr("data-id");
-		val++;
-		ipt.val(val);
-		//共  件商品
-		var numOri = this.proNum.text();
-		numOri++;
-		this.proNum.text(numOri);
-
-
-		this.unitPrice = Number(targetEle.parent().parent().prev().find(".singlePrice").text());
-		var sum = this.unitPrice * val;
-		var sumOri = Number(this.sumMoney.eq(0).text());
-		this.smSumMoney = targetEle.parent().parent().next().find(".smSumMoney");
-		this.smSumMoney.text(sum);//小计
-		var total = sumOri + this.unitPrice;
-		this.sumMoney.text(total);//总金额
-		$.ajax({
-			url: "../php/update.php",
-			type: "post",
-			data: {
-				id: id,
-				num: val
-			},
-			success: $.proxy(this.handAddAjax,this)
-		})
-	},
-	handAddAjax: function(data) {
-		console.log(data)
-	},
-	reduceClick: function() {
-		this.reduceBtn = this.ele.find(".cart-reduce");
-		this.reduceBtn.each($.proxy(this.handReEach,this));
-	},
-	handReEach: function(i) {
-		this.reduceBtn.eq(i).on("click",i,$.proxy(this.handReBtn,this));
-	},
-	handReBtn: function(event) {
-		var index = event.data;
-		var targetEle = this.reduceBtn.eq(index);
-		var ipt = targetEle.next();
-		var val = Number(ipt.val());
-		var id = targetEle.parent().parent().parent().attr("data-id");
-		if(val <= 2) {
-			val = 1;
-		} else {
-			val--;
 		}
-		ipt.val(val);
-		//共  件商品
-		var numOri = this.proNum.text();
-		numOri--;
-		this.proNum.text(numOri);
-		this.unitPrice = Number(targetEle.parent().parent().prev().find(".singlePrice").text());
-		var sum = this.unitPrice * val;
-		var sumOri = Number(this.sumMoney.eq(0).text());
-		this.smSumMoney = targetEle.parent().parent().next().find(".smSumMoney");
-		this.smSumMoney.text(sum);//小计
-		var total = sumOri + this.unitPrice;
-		this.sumMoney.text(total);//总金额
-		$.ajax({
-			url: "../php/update.php",
-			type: "post",
-			data: {
-				id: id,
-				num: val
-			},
-			success: $.proxy(this.handReAjax,this)
-		})
 	},
-	handReAjax: function(data) {
-		console.log(data)
+	handAdd: function() {
+		this.requestData();
+	},
+	handReduce: function() {
+		this.requestData();
+	},
+	handDelAjax: function() {
+		this.requestData();
 	}
 })
 new ShowData();

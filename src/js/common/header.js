@@ -336,7 +336,7 @@ $.extend(FixBar.prototype,{
 							<p class="delivery-info">
 								<span class="pro-num" id="sum-num">0</span>
 								<span class="delivery-address">件商品配送至深圳市</span>
-								<span class="sum-money">￥230</span>
+								<span class="sum-money">￥0</span>
 							</p>
 							<a class="check-btn" href="javascript:;">去购物袋结算</a>
 							<div class="cart-yao">

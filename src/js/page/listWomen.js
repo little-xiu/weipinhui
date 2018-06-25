@@ -5,6 +5,9 @@ $(function() {
 		this.preBtn = $(".pre-page");
 		this.nextBtn = $(".next-page");
 		this.index = 1;
+		this.sumPro = $("#sum-pro");
+		this.pageCur = $("#page-cur");
+		this.pageSum = $("#page-sum");
 		this.init();
 	}
 	$.extend(PageWomen.prototype,{
@@ -22,8 +25,10 @@ $(function() {
 		handleLoadImg: function(data) {
 			this.data = data;
 			this.pageNum = Math.ceil(this.data.length/4);
+			this.sumPro.text(this.data.length);
+			this.pageSum.text(this.pageNum);
 			this.page(1);
-			this.addLink();
+			this.addLink();//动态添加的分页的a标签第几页
 			this.preClick();
 			this.nextClick();
 		},
@@ -55,6 +60,7 @@ $(function() {
 								</li>`;
 			}
 			this.box.html(str);
+			this.pageCur.text(n);
 		},//动态添加页码
 		addLink: function() {
 			for (var i = 0; i < this.pageNum; i++) {
